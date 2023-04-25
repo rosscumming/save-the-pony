@@ -1,4 +1,4 @@
-export type CreateNewMazePayload = {
+export type MazePayload = {
   'maze-width': number;
   'maze-height': number;
   'maze-player-name': string;
@@ -26,4 +26,4 @@ const direction = {
   WEST: 'west',
 } as const;
 
-export type Direction = typeof direction;
+export type Direction = (typeof direction)[keyof typeof direction];
