@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { createNewMaze } from '../../src/api/index';
 import type { MazePayload } from '../types/api.type';
 
@@ -10,11 +10,9 @@ const useCreateMaze = (width: number, height: number, playername: string, diffic
     difficulty,
   };
 
-  const { data, error } = useQuery(['mazeId'], () => createNewMaze(mazePayload), {
-    refetchOnWindowFocus: false,
-  });
+  const { mutate, data, isError } = useMutation(() => createNewMaze(mazePayload));
 
-  return { mazeId: data, mazeIdError: error };
+  return { createMaze: mutate, mazeId: data, mazeIdError: isError };
 };
 
 export default useCreateMaze;

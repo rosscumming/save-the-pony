@@ -1,11 +1,22 @@
+import { useEffect } from 'react';
 import './App.css';
 import useGetMazeById from '../utils/hooks/useGetMazeById';
+import useCreateMaze from '../utils/hooks/useCreateMaze';
+import Maze from './components/Maze';
 
 function App() {
-  const { mazeGameData } = useGetMazeById();
+  const { createMaze, mazeId } = useCreateMaze(15, 15, 'Applejack', 0);
+  const { mazeAllGameData } = useGetMazeById(mazeId);
 
-  console.log(mazeGameData);
-  return <></>;
+  useEffect(() => {
+    createMaze();
+  }, [createMaze]);
+
+  return (
+    <div className="App">
+      <Maze mazeAllGameData={mazeAllGameData} />
+    </div>
+  );
 }
 
 export default App;

@@ -19,7 +19,7 @@ export type MazeDataInfo = {
   };
 };
 
-const direction = {
+export const direction = {
   NORTH: 'north',
   SOUTH: 'south',
   EAST: 'east',
