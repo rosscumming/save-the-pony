@@ -12,7 +12,7 @@ export type UseMovePonyReturn = {
   movePony: UseMutationResult<MazeDataInfo, unknown, MovePonyProps, unknown>;
 };
 
-const useMovePony = (mazeId: string, refetchMazeData: () => void): UseMovePonyReturn => {
+const useMovePony = (mazeId: string | undefined, refetchMazeData: () => void): UseMovePonyReturn => {
   const movePonyMutation = useMutation(initiatePonyMove, {
     onSuccess: () => {
       refetchMazeData();
@@ -20,10 +20,10 @@ const useMovePony = (mazeId: string, refetchMazeData: () => void): UseMovePonyRe
   });
 
   const handleKeyDown = useCallback(
-    (event: KeyboardEvent) => {
+    (e: KeyboardEvent) => {
       let direction: Direction | null = null;
 
-      switch (event.key) {
+      switch (e.key) {
         case 'ArrowUp':
           direction = 'north';
           break;
@@ -40,7 +40,10 @@ const useMovePony = (mazeId: string, refetchMazeData: () => void): UseMovePonyRe
           break;
       }
 
-      if (direction) {
+      if (!mazeId) return;
+
+      if (direction && mazeId) {
+        e.preventDefault();
         movePonyMutation.mutate({ maze_id: mazeId, direction });
       }
     },
