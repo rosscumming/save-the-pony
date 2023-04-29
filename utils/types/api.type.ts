@@ -13,9 +13,10 @@ export type MazeDataInfo = {
   difficulty: number;
   data: string[][];
   maze_id: string;
-  game_state: {
+  'game-state': {
     state: string;
     'state-result': string;
+    'hidden-url': string;
   };
 };
 

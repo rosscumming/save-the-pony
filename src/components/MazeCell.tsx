@@ -18,11 +18,11 @@ const getCellBorders = (cell: string[]) => `
 export const MazeCell = ({ cellProps }: { cellProps: MazeCellProps }): JSX.Element => {
   const { domokunIndex, ponyIndex, endPointIndex, cellIndex, cellSize, cell } = cellProps;
 
-  let role = '';
+  let role;
 
-  if (domokunIndex === cellIndex) role = 'D';
-  if (ponyIndex === cellIndex) role = 'P';
-  if (endPointIndex === cellIndex) role = 'E';
+  if (domokunIndex === cellIndex) role = <StyledImage src="src\assets\domokun.png" />;
+  if (ponyIndex === cellIndex) role = <StyledImage src="src\assets\Applejack.png" />;
+  if (endPointIndex === cellIndex) role = <StyledImage src="src\assets\rainbow.png" />;
 
   return (
     <StyledMazeCell cellSize={cellSize} cell={cell}>
@@ -44,4 +44,9 @@ const StyledMazeCell = styled.div<{ cellSize: string; cell: string[] }>`
   margin: 0;
   ${(props) => getCellBorders(props.cell)}
   box-sizing: border-box;
+`;
+
+const StyledImage = styled.img`
+  z-index: 999;
+  height: 25px;
 `;
