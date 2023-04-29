@@ -1,15 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import useGetMazeById from '../utils/hooks/useGetMazeById';
 import useCreateMaze from '../utils/hooks/useCreateMaze';
-import useMovePony from '../utils/hooks/useMovePony';
 import Maze from './components/Maze';
+import useWindowSize from '../utils/hooks/useWindowSize';
+import MoveControls from './components/MoveControls';
 
-function App() {
+function App(): JSX.Element {
   const { createMaze, mazeId } = useCreateMaze(15, 15, 'Applejack', 0);
   const { mazeGameData, refetchMazeData } = useGetMazeById(mazeId);
+  const [zoom, setZoom] = useState<number>(0.4);
+  const [windowWidth] = useWindowSize();
 
-  useMovePony(mazeId, refetchMazeData);
+  useEffect(() => {
+    setZoom(windowWidth < 750 ? 0.9 : 0.4);
+  }, [windowWidth]);
 
   useEffect(() => {
     createMaze();
@@ -19,7 +24,8 @@ function App() {
 
   return (
     <div className="App">
-      <Maze mazeGameData={mazeGameData} />
+      <Maze mazeGameData={mazeGameData} zoom={zoom} windowWidth={windowWidth} />
+      <MoveControls mazeId={mazeId} refetchMazeData={refetchMazeData} />
     </div>
   );
 }

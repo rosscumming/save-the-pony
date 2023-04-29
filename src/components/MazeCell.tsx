@@ -13,10 +13,9 @@ export type MazeCellProps = {
 const getCellBorders = (cell: string[]) => `
   border-top: ${cell.includes(direction.NORTH) ? '2px solid' : ''};
   border-left: ${cell.includes(direction.WEST) ? '2px solid' : ''};
-
 `;
 
-export const MazeCell = ({ cellProps }: { cellProps: MazeCellProps }) => {
+export const MazeCell = ({ cellProps }: { cellProps: MazeCellProps }): JSX.Element => {
   const { domokunIndex, ponyIndex, endPointIndex, cellIndex, cellSize, cell } = cellProps;
 
   let role = '';

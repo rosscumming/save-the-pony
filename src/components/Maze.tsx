@@ -1,13 +1,16 @@
 import { MazeCell } from './MazeCell';
-import useWindowSize from '../../utils/hooks/useWindowSize';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { MazeDataInfo } from '../../utils/types/api.type';
 
-const Maze = ({ mazeGameData }: { mazeGameData: MazeDataInfo }) => {
-  const [windowWidth] = useWindowSize();
+export type MazeProps = {
+  mazeGameData: MazeDataInfo;
+  zoom: number;
+  windowWidth: number;
+};
+
+const Maze = ({ mazeGameData, zoom, windowWidth }: MazeProps): JSX.Element => {
   const [cellSize, setCellSize] = useState<string>('28px');
-  const [zoom, setZoom] = useState<number>(0.4);
 
   const {
     size: [mazeWidth, mazeHeight],
