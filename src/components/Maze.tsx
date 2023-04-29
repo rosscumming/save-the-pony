@@ -1,7 +1,7 @@
 import { MazeCell } from './MazeCell';
 
-const Maze = ({ mazeAllGameData }: any) => {
-  if (!mazeAllGameData) return <div>loading...</div>;
+const Maze = ({ mazeGameData }: any) => {
+  if (!mazeGameData) return <div>loading...</div>;
 
   const {
     size: [mazeWidth, mazeHeight],
@@ -9,7 +9,7 @@ const Maze = ({ mazeAllGameData }: any) => {
     pony: [ponyIndex],
     'end-point': [endPointIndex],
     data,
-  } = mazeAllGameData;
+  } = mazeGameData;
 
   return (
     <div>

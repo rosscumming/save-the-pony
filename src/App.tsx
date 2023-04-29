@@ -6,7 +6,7 @@ import Maze from './components/Maze';
 
 function App() {
   const { createMaze, mazeId } = useCreateMaze(15, 15, 'Applejack', 0);
-  const { mazeAllGameData } = useGetMazeById(mazeId);
+  const { mazeGameData } = useGetMazeById(mazeId);
 
   useEffect(() => {
     createMaze();
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <Maze mazeAllGameData={mazeAllGameData} />
+      <Maze mazeGameData={mazeGameData} />
     </div>
   );
 }
