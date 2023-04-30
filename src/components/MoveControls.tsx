@@ -10,10 +10,10 @@ type MoveControlsProps = {
 };
 
 const directionMap: Record<string, Direction> = {
-  ArrowUp: 'north',
-  ArrowDown: 'south',
-  ArrowLeft: 'west',
-  ArrowRight: 'east',
+  ArrowUp: direction.NORTH,
+  ArrowDown: direction.SOUTH,
+  ArrowLeft: direction.WEST,
+  ArrowRight: direction.EAST,
 };
 
 const MoveControls = ({ mazeId, refetchMazeData }: MoveControlsProps): JSX.Element => {
