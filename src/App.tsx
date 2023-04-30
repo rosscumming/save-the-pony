@@ -5,8 +5,8 @@ import Maze from './components/Maze';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import MoveControls from './components/MoveControls';
 import EndOfGame from './components/EndOfGame';
-import RestartButton from './components/RestartButton';
-import Settings from './components/Settings';
+import RestartButton from './components/ui/RestartButton';
+import Settings from './components/ui/SettingsButton';
 import { MazePayload } from '../utils/types/api.type';
 import styled from 'styled-components';
 

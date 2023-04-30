@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import type { MazeDataInfo } from '../../utils/types/api.type';
-import RestartButton from './RestartButton';
+import RestartButton from './ui/RestartButton';
 
 type EndOfGameProps = {
   mazeGameData: MazeDataInfo;

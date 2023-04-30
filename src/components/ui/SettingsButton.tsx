@@ -1,11 +1,11 @@
 // Settings.tsx
 import { useState } from 'react';
 import styled from 'styled-components';
-import SettingsModal from '../modals/SettingsModal';
-import SettingsOptions from './SettingsOptions';
-import type { SettingsProps } from '../../utils/types/settings.type';
+import SettingsModal from '../../modals/SettingsModal';
+import SettingsOptions from '../SettingsOptions';
+import type { SettingsProps } from '../../../utils/types/settings.type';
 
-const Settings = ({ onUpdateSettings }: SettingsProps) => {
+const Settings = ({ onUpdateSettings }: SettingsProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggleSettingsWindow: () => void = () => setIsOpen((prev) => !prev);
 

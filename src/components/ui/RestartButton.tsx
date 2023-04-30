@@ -2,7 +2,7 @@ type RestartButtonProps = {
   onRestart: () => void;
 };
 
-const RestartButton = ({ onRestart }: RestartButtonProps) => {
+const RestartButton = ({ onRestart }: RestartButtonProps): JSX.Element => {
   return <StyledButton onClick={onRestart}>Restart ↻</StyledButton>;
 };
 
