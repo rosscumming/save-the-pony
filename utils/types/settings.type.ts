@@ -1,5 +1,5 @@
-import type { MazePayload } from '../types/api.type';
+import type { GameConfig } from '../types/api.type';
 
 export type SettingsProps = {
-  onUpdateSettings: (newSettings: MazePayload) => void;
+  onUpdateSettings: (newSettings: GameConfig) => void;
 };
