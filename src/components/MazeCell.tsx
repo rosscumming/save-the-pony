@@ -18,11 +18,13 @@ const getCellBorders = (cell: string[]) => `
 export const MazeCell = ({ cellProps }: { cellProps: MazeCellProps }): JSX.Element => {
   const { domokunIndex, ponyIndex, endPointIndex, cellIndex, cellSize, cell } = cellProps;
 
-  let role;
+  const roleMap: Record<string, string> = {
+    [domokunIndex]: 'domokun.png',
+    [ponyIndex]: 'Applejack.png',
+    [endPointIndex]: 'rainbow.png',
+  };
 
-  if (domokunIndex === cellIndex) role = <StyledImage src="src\assets\domokun.png" />;
-  if (ponyIndex === cellIndex) role = <StyledImage src="src\assets\Applejack.png" />;
-  if (endPointIndex === cellIndex) role = <StyledImage src="src\assets\rainbow.png" />;
+  const role = roleMap[cellIndex] && <StyledImage src={`src/assets/${roleMap[cellIndex]}`} />;
 
   return (
     <StyledMazeCell cellSize={cellSize} cell={cell}>

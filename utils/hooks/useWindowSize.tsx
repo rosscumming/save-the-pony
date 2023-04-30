@@ -9,7 +9,9 @@ const useWindowSize = (): number[] => {
       setWindowSize([window.innerWidth, window.innerHeight]);
     }
     window.addEventListener('resize', handleResize);
+
     handleResize();
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return windowSize;

@@ -13,7 +13,7 @@ const Maze = ({ mazeGameData, zoom, windowWidth }: MazeProps): JSX.Element => {
   const [cellSize, setCellSize] = useState<string>('28px');
 
   const {
-    size: [mazeWidth, mazeHeight],
+    size: [mazeWidth],
     domokun: [domokunIndex],
     pony: [ponyIndex],
     'end-point': [endPointIndex],
@@ -22,7 +22,7 @@ const Maze = ({ mazeGameData, zoom, windowWidth }: MazeProps): JSX.Element => {
 
   useEffect(() => {
     setCellSize(`${((windowWidth - 28) / mazeWidth) * zoom}px`);
-  }, [windowWidth, mazeWidth, mazeHeight, zoom]);
+  }, [windowWidth, mazeWidth, zoom]);
 
   return (
     <MazeWrapper cellSize={cellSize} mazeWidth={mazeWidth}>
