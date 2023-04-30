@@ -7,6 +7,7 @@ import MoveControls from './components/MoveControls';
 import EndOfGame from './components/EndOfGame';
 import RestartButton from './components/ui/RestartButton';
 import Settings from './components/ui/SettingsButton';
+import ZoomSlider from './components/ui/ZoomSlider';
 import { GameConfig } from '../utils/types/api.type';
 import styled from 'styled-components';
 
@@ -30,7 +31,8 @@ function App(): JSX.Element {
     createMaze(settings);
   }, [createMaze, settings]);
 
-  const hasGameEnded = mazeGameData?.['game-state']?.state === 'over' || mazeGameData?.['game-state']?.state === 'won';
+  const hasBeenkilled = mazeGameData?.pony?.[0] === mazeGameData?.domokun?.[0];
+  const hasGameEnded = hasBeenkilled || mazeGameData?.['game-state']?.state === 'over' || mazeGameData?.['game-state']?.state === 'won';
 
   const restartGame = () => {
     createMaze(settings);
@@ -46,11 +48,12 @@ function App(): JSX.Element {
   return (
     <div className="App">
       {hasGameEnded ? (
-        <EndOfGame mazeGameData={mazeGameData} onRestart={restartGame} />
+        <EndOfGame mazeGameData={mazeGameData} onRestart={restartGame} hasBeenkilled={hasBeenkilled} />
       ) : (
         <>
           <Maze mazeGameData={mazeGameData} zoom={zoom} windowWidth={windowWidth} />
           <ControlsWrapper>
+            <ZoomSlider zoom={zoom} onZoomChange={setZoom} />
             <MoveControls mazeId={mazeId} refetchMazeData={refetchMazeData} />
             <RestartAndSettings>
               <RestartButton onRestart={restartGame} />

@@ -24,7 +24,7 @@ export const MazeCell = ({ cellProps }: { cellProps: MazeCellProps }): JSX.Eleme
     [endPointIndex]: 'rainbow.png',
   };
 
-  const role = roleMap[cellIndex] && <StyledImage src={`src/assets/${roleMap[cellIndex]}`} />;
+  const role = roleMap[cellIndex] && <StyledImage cellSize={cellSize} src={`src/assets/${roleMap[cellIndex]}`} />;
 
   return (
     <StyledMazeCell cellSize={cellSize} cell={cell}>
@@ -48,7 +48,8 @@ const StyledMazeCell = styled.div<{ cellSize: string; cell: string[] }>`
   box-sizing: border-box;
 `;
 
-const StyledImage = styled.img`
+const StyledImage = styled.img<{ cellSize: string }>`
   z-index: 999;
-  height: 25px;
+  height: calc(${(props) => props.cellSize} * 0.9);
+  width: calc(${(props) => props.cellSize} * 0.9);
 `;

@@ -5,11 +5,14 @@ import RestartButton from './ui/RestartButton';
 type EndOfGameProps = {
   mazeGameData: MazeDataInfo;
   onRestart: () => void;
+  hasBeenkilled: boolean;
 };
 
-const EndOfGame = ({ mazeGameData, onRestart }: EndOfGameProps) => {
-  const endOfGameUrl = `https://ponychallenge.trustpilot.com${mazeGameData?.['game-state']['hidden-url']}`;
-  const endOfGameResult = mazeGameData?.['game-state']?.['state-result'];
+const EndOfGame = ({ mazeGameData, onRestart, hasBeenkilled }: EndOfGameProps) => {
+  const hasBeenKilledImageUrl = 'https://ponychallenge.trustpilot.com/eW91X2tpbGxlZF90aGVfcG9ueQ==.jpg';
+  const defaultEndOfGameImageUrl = `https://ponychallenge.trustpilot.com${mazeGameData?.['game-state']['hidden-url']}`;
+  const endOfGameResult = hasBeenkilled ? 'You lost. Killed by monster' : mazeGameData?.['game-state']?.['state-result'];
+  const endOfGameUrl = hasBeenkilled ? hasBeenKilledImageUrl : defaultEndOfGameImageUrl;
 
   return (
     <EndOfGameWrapper>

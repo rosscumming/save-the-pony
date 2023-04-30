@@ -78,7 +78,7 @@ const FormGroup = styled.div`
 `;
 
 const Label = styled.label`
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const Input = styled.input`
@@ -97,7 +97,7 @@ const Button = styled.button`
   padding: 0.5rem 1rem;
   background-color: #3498db;
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 0.25rem;
   border: none;
   cursor: pointer;

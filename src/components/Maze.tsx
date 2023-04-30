@@ -43,4 +43,5 @@ const MazeWrapper = styled.div<{ cellSize: string; mazeWidth: number }>`
   max-width: ${(props) => `calc(${props.cellSize} * ${props.mazeWidth} )`};
   border-right: 2px solid black;
   border-bottom: 2px solid black;
+  margin: 0 auto;
 `;

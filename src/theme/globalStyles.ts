@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
    justify-content: center;
    box-sizing: border-box;
    align-items: center;
-   height: 100vh;
+   min-height: 100vh;
+   font-family: 'Bangers', cursive;
   }
 `;
 
