@@ -12,7 +12,7 @@ const MoveControls = ({ mazeId, refetchMazeData }: MoveControlsProps): JSX.Eleme
 
   const handlelClickOrPressMove = useCallback(
     (direction: Direction) => {
-      if (direction && mazeId) {
+      if (mazeId) {
         movePony.mutate({ maze_id: mazeId, direction });
       }
     },
@@ -21,26 +21,14 @@ const MoveControls = ({ mazeId, refetchMazeData }: MoveControlsProps): JSX.Eleme
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      let direction: Direction | null = null;
+      const directionMap: Record<string, Direction> = {
+        ArrowUp: 'north',
+        ArrowDown: 'south',
+        ArrowLeft: 'west',
+        ArrowRight: 'east',
+      };
 
-      switch (e.key) {
-        case 'ArrowUp':
-          direction = 'north';
-          break;
-        case 'ArrowDown':
-          direction = 'south';
-          break;
-        case 'ArrowLeft':
-          direction = 'west';
-          break;
-        case 'ArrowRight':
-          direction = 'east';
-          break;
-        default:
-          break;
-      }
-
-      if (!mazeId) return;
+      const direction = directionMap[e.key];
 
       if (direction && mazeId) {
         e.preventDefault();
