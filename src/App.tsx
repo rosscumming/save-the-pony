@@ -21,10 +21,7 @@ function App(): JSX.Element {
     createMaze();
   }, [createMaze]);
 
-  const hasGameEnded = useMemo(
-    () => mazeGameData?.['game-state']?.state === 'over' || mazeGameData?.['game-state']?.state === 'won',
-    [mazeGameData]
-  );
+  const hasGameEnded = mazeGameData?.['game-state']?.state === 'over' || mazeGameData?.['game-state']?.state === 'won';
 
   const restartGame = () => {
     createMaze();
