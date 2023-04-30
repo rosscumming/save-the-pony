@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 type RestartButtonProps = {
   onRestart: () => void;
 };
@@ -7,8 +9,6 @@ const RestartButton = ({ onRestart }: RestartButtonProps): JSX.Element => {
 };
 
 export default RestartButton;
-
-import styled from 'styled-components';
 
 const StyledButton = styled.button`
   background-color: #1e90ff;
