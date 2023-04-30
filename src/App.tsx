@@ -7,11 +7,11 @@ import MoveControls from './components/MoveControls';
 import EndOfGame from './components/EndOfGame';
 import RestartButton from './components/ui/RestartButton';
 import Settings from './components/ui/SettingsButton';
-import { MazePayload } from '../utils/types/api.type';
+import { GameConfig } from '../utils/types/api.type';
 import styled from 'styled-components';
 
 function App(): JSX.Element {
-  const [settings, setSettings] = useState<MazePayload>({
+  const [settings, setSettings] = useState<GameConfig>({
     'maze-width': 15,
     'maze-height': 15,
     'maze-player-name': 'Applejack',
@@ -36,7 +36,7 @@ function App(): JSX.Element {
     createMaze(settings);
   };
 
-  const updateSettings = (newSettings: MazePayload) => {
+  const updateSettings = (newSettings: GameConfig) => {
     setSettings(newSettings);
     createMaze(newSettings);
   };

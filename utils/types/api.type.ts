@@ -1,4 +1,4 @@
-export type MazePayload = {
+export type GameConfig = {
   'maze-width': number;
   'maze-height': number;
   'maze-player-name': string;
@@ -28,3 +28,7 @@ export const direction = {
 } as const;
 
 export type Direction = (typeof direction)[keyof typeof direction];
+
+export type DirectionPayload = {
+  direction: Direction;
+};
