@@ -35,7 +35,7 @@ const Button = styled.button<{ active: boolean }>`
   align-items: center;
   justify-content: center;
   padding: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
   &:hover {
