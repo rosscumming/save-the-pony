@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { direction } from '../../utils/types/api.type';
 import type { MazeDataInfo } from '../../utils/types/api.type';
 
-const mockMazeData: MazeDataInfo = {
+export const mockMazeData: MazeDataInfo = {
   maze_id: 'abc123',
   pony: [25],
   domokun: [74],
