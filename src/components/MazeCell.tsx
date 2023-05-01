@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { direction } from '../../utils/types/api.type';
-import TwilightSparkle from '../assets/twilightsparkle.png';
-import Applejack from '../assets/applejack.png';
-import RainbowDash from '../assets/rainbowdash.png';
-import Rarity from '../assets/rarity.png';
-import Fluttershy from '../assets/fluttershy.png';
-import PinkiePie from '../assets/pinkiepie.png';
-import Domokun from '../assets/domokun.png';
-import Rainbow from '../assets/rainbow.png';
+import twilightsparkle from '/twilightsparkle.png';
+import applejack from '/applejack.png';
+import rainbowdash from '/rainbowdash.png';
+import rarity from '/rarity.png';
+import fluttershy from '/fluttershy.png';
+import pinkiepie from '/pinkiepie.png';
+import domokun from '/domokun.png';
+import rainbow from '/rainbow.png';
 
 export type MazeCellProps = {
   domokunIndex: number;
@@ -25,12 +25,12 @@ const getCellBorders = (cell: string[]) => `
 
 const getPonyImage = (ponyName: string) => {
   const ponyMap: Record<string, string> = {
-    'Twilight Sparkle': TwilightSparkle,
-    Applejack: Applejack,
-    'Rainbow Dash': RainbowDash,
-    Rarity: Rarity,
-    Fluttershy: Fluttershy,
-    'Pinkie Pie': PinkiePie,
+    'Twilight Sparkle': twilightsparkle,
+    Applejack: applejack,
+    'Rainbow Dash': rainbowdash,
+    Rarity: rarity,
+    Fluttershy: fluttershy,
+    'Pinkie Pie': pinkiepie,
   };
   return ponyMap[ponyName];
 };
@@ -39,12 +39,12 @@ export const MazeCell = ({ cellProps, ponyName }: { cellProps: MazeCellProps; po
   const { domokunIndex, ponyIndex, endPointIndex, cellIndex, cellSize, cell } = cellProps;
 
   const roleMap: Record<string, string> = {
-    [domokunIndex]: Domokun,
+    [domokunIndex]: domokun,
     [ponyIndex]: getPonyImage(ponyName),
-    [endPointIndex]: Rainbow,
+    [endPointIndex]: rainbow,
   };
 
-  const role = roleMap[cellIndex] && <StyledImage cellSize={cellSize} src={`${roleMap[cellIndex]}`} />;
+  const role = roleMap[cellIndex] && <StyledImage cellSize={cellSize} src={roleMap[cellIndex]} />;
 
   return (
     <StyledMazeCell cellSize={cellSize} cell={cell}>
