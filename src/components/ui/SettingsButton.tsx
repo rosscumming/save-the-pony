@@ -11,7 +11,7 @@ const Settings = ({ onUpdateSettings }: SettingsProps): JSX.Element => {
 
   return (
     <>
-      <StyledButton role="button" onClick={toggleSettingsWindow}>
+      <StyledButton role="button" onClick={toggleSettingsWindow} data-testid="settings-button">
         Settings ⚙️
       </StyledButton>
       {isOpen && (

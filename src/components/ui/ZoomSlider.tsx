@@ -12,7 +12,7 @@ const ZoomSlider = ({ zoom, onZoomChange }: ZoomSliderProps) => {
   };
 
   return (
-    <SliderWrapper>
+    <SliderWrapper data-testid="zoom-slider">
       <Label htmlFor="zoom">Zoom:</Label>
       <Slider type="range" id="zoom" min={0.3} max={0.7} step={0.1} value={zoom} onChange={handleZoomChange} />
     </SliderWrapper>
