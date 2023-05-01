@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { direction } from '../../utils/types/api.type';
-import twilightsparkle from '/twilightsparkle.png';
-import applejack from '/applejack.png';
-import rainbowdash from '/rainbowdash.png';
-import rarity from '/rarity.png';
-import fluttershy from '/fluttershy.png';
-import pinkiepie from '/pinkiepie.png';
-import domokun from '/domokun.png';
-import rainbow from '/rainbow.png';
+import twilightsparkle from '../assets/twilightsparkle.png';
+import applejack from '../assets/applejack.png';
+import rainbowdash from '../assets/rainbowdash.png';
+import rarity from '../assets/rarity.png';
+import fluttershy from '../assets/fluttershy.png';
+import pinkiepie from '../assets/pinkiepie.png';
+import domokun from '../assets/domokun.png';
+import rainbow from '../assets/rainbow.png';
 
 export type MazeCellProps = {
   domokunIndex: number;
