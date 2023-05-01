@@ -11,10 +11,10 @@ export type UseMovePonyReturn = {
   movePony: UseMutationResult<MazeDataInfo, unknown, MovePonyProps, unknown>;
 };
 
-const useMovePony = (refetchMazeData: () => void): UseMovePonyReturn => {
+const useMovePony = (movePonySuccess: () => void): UseMovePonyReturn => {
   const movePonyMutation = useMutation(initiatePonyMove, {
     onSuccess: () => {
-      refetchMazeData();
+      movePonySuccess();
     },
   });
 
