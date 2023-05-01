@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 import type { SettingsProps } from '../../utils/types/settings.type';
 
 const SettingsOptions = ({ onUpdateSettings }: SettingsProps) => {
@@ -63,8 +64,6 @@ const SettingsOptions = ({ onUpdateSettings }: SettingsProps) => {
 
 export default SettingsOptions;
 
-import styled from 'styled-components';
-
 const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
@@ -79,6 +78,7 @@ const FormGroup = styled.div`
 
 const Label = styled.label`
   font-weight: 500;
+  font-size: 1.4rem;
 `;
 
 const Input = styled.input`

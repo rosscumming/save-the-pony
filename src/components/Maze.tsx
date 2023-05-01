@@ -7,9 +7,10 @@ export type MazeProps = {
   mazeGameData: MazeDataInfo;
   zoom: number;
   windowWidth: number;
+  ponyName: string;
 };
 
-const Maze = ({ mazeGameData, zoom, windowWidth }: MazeProps): JSX.Element => {
+const Maze = ({ mazeGameData, zoom, windowWidth, ponyName }: MazeProps): JSX.Element => {
   const [cellSize, setCellSize] = useState<string>('28px');
 
   const {
@@ -29,7 +30,7 @@ const Maze = ({ mazeGameData, zoom, windowWidth }: MazeProps): JSX.Element => {
       {data.map((cell: string[], cellIndex: number) => {
         const cellProps = { cell, cellIndex, domokunIndex, ponyIndex, endPointIndex, cellSize };
 
-        return <MazeCell key={cellIndex} cellProps={cellProps} />;
+        return <MazeCell key={cellIndex} cellProps={cellProps} ponyName={ponyName} />;
       })}
     </MazeWrapper>
   );

@@ -15,12 +15,24 @@ const getCellBorders = (cell: string[]) => `
   border-left: ${cell.includes(direction.WEST) ? '2px solid' : ''};
 `;
 
-export const MazeCell = ({ cellProps }: { cellProps: MazeCellProps }): JSX.Element => {
+const getPonyImage = (ponyName: string) => {
+  const ponyMap: Record<string, string> = {
+    'Twilight Sparkle': 'twilightsparkle.png',
+    Applejack: 'applejack.png',
+    'Rainbow Dash': 'rainbowdash.png',
+    Rarity: 'rarity.png',
+    Fluttershy: 'fluttershy.png',
+    'Pinkie Pie': 'pinkiepie.png',
+  };
+  return ponyMap[ponyName];
+};
+
+export const MazeCell = ({ cellProps, ponyName }: { cellProps: MazeCellProps; ponyName: string }): JSX.Element => {
   const { domokunIndex, ponyIndex, endPointIndex, cellIndex, cellSize, cell } = cellProps;
 
   const roleMap: Record<string, string> = {
     [domokunIndex]: 'domokun.png',
-    [ponyIndex]: 'Applejack.png',
+    [ponyIndex]: getPonyImage(ponyName),
     [endPointIndex]: 'rainbow.png',
   };
 

@@ -51,7 +51,7 @@ function App(): JSX.Element {
         <EndOfGame mazeGameData={mazeGameData} onRestart={restartGame} hasBeenkilled={hasBeenkilled} />
       ) : (
         <>
-          <Maze mazeGameData={mazeGameData} zoom={zoom} windowWidth={windowWidth} />
+          <Maze mazeGameData={mazeGameData} zoom={zoom} windowWidth={windowWidth} ponyName={settings['maze-player-name']} />
           <ControlsWrapper>
             <ZoomSlider zoom={zoom} onZoomChange={setZoom} />
             <MoveControls mazeId={mazeId} refetchMazeData={refetchMazeData} />
