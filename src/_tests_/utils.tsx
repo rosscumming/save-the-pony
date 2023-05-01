@@ -21,13 +21,13 @@ export const mockMazeData: MazeDataInfo = {
 };
 
 export const handlers = [
-  rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze', (req, res, ctx) => {
+  rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze', (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ maze_id: 'abc123' }));
   }),
-  rest.get('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (req, res, ctx) => {
+  rest.get('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockMazeData));
   }),
-  rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (req, res, ctx) => {
+  rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockMazeData));
   }),
 ];
