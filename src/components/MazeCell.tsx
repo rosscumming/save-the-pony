@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 import { direction } from '../../utils/types/api.type';
+import TwilightSparkle from '../assets/twilightsparkle.png';
+import Applejack from '../assets/applejack.png';
+import RainbowDash from '../assets/rainbowdash.png';
+import Rarity from '../assets/rarity.png';
+import Fluttershy from '../assets/fluttershy.png';
+import PinkiePie from '../assets/pinkiepie.png';
+import Domokun from '../assets/domokun.png';
+import Rainbow from '../assets/rainbow.png';
 
 export type MazeCellProps = {
   domokunIndex: number;
@@ -17,12 +25,12 @@ const getCellBorders = (cell: string[]) => `
 
 const getPonyImage = (ponyName: string) => {
   const ponyMap: Record<string, string> = {
-    'Twilight Sparkle': 'twilightsparkle.png',
-    Applejack: 'applejack.png',
-    'Rainbow Dash': 'rainbowdash.png',
-    Rarity: 'rarity.png',
-    Fluttershy: 'fluttershy.png',
-    'Pinkie Pie': 'pinkiepie.png',
+    'Twilight Sparkle': TwilightSparkle,
+    Applejack: Applejack,
+    'Rainbow Dash': RainbowDash,
+    Rarity: Rarity,
+    Fluttershy: Fluttershy,
+    'Pinkie Pie': PinkiePie,
   };
   return ponyMap[ponyName];
 };
@@ -31,12 +39,12 @@ export const MazeCell = ({ cellProps, ponyName }: { cellProps: MazeCellProps; po
   const { domokunIndex, ponyIndex, endPointIndex, cellIndex, cellSize, cell } = cellProps;
 
   const roleMap: Record<string, string> = {
-    [domokunIndex]: 'domokun.png',
+    [domokunIndex]: Domokun,
     [ponyIndex]: getPonyImage(ponyName),
-    [endPointIndex]: 'rainbow.png',
+    [endPointIndex]: Rainbow,
   };
 
-  const role = roleMap[cellIndex] && <StyledImage cellSize={cellSize} src={`src/assets/${roleMap[cellIndex]}`} />;
+  const role = roleMap[cellIndex] && <StyledImage cellSize={cellSize} src={`${roleMap[cellIndex]}`} />;
 
   return (
     <StyledMazeCell cellSize={cellSize} cell={cell}>
