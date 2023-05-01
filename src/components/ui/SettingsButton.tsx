@@ -15,8 +15,8 @@ const Settings = ({ onUpdateSettings }: SettingsProps): JSX.Element => {
         Settings ⚙️
       </StyledButton>
       {isOpen && (
-        <SettingsModal>
-          <StyledOverlay onClick={toggleSettingsWindow} />
+        <SettingsModal data-testid="settings-modal">
+          <StyledOverlay onClick={toggleSettingsWindow} data-testid="settings-overlay" />
           <StyledSettingsWindowContent>
             <SettingsOptions onUpdateSettings={onUpdateSettings} />
           </StyledSettingsWindowContent>
