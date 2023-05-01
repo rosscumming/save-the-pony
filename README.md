@@ -2,6 +2,8 @@
 
 Welcome to the Save the Pony. The goal of the game is to help the pony escape the maze and reach the rainbow before the enemy Domokun catches you.
 
+Want to play the game without havin to download and install? [click here 👈](https://eloquent-entremet-d5d83c.netlify.app/)
+
 ## Table of Contents
 
 1. [Tech Stack](#tech-stack)
