@@ -26,7 +26,7 @@ const Maze = ({ mazeGameData, zoom, windowWidth, ponyName }: MazeProps): JSX.Ele
   }, [windowWidth, mazeWidth, zoom]);
 
   return (
-    <MazeWrapper cellSize={cellSize} mazeWidth={mazeWidth}>
+    <MazeWrapper cellSize={cellSize} mazeWidth={mazeWidth} data-testid="maze-container">
       {data.map((cell: string[], cellIndex: number) => {
         const cellProps = { cell, cellIndex, domokunIndex, ponyIndex, endPointIndex, cellSize };
 
