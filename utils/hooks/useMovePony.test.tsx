@@ -1,4 +1,4 @@
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { server } from '../../setup';
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../../src/_tests_/utils';
@@ -8,8 +8,8 @@ import { vi } from 'vitest';
 describe('useMovePony', () => {
   it('should return "move accepted" when provided with mazeId and direction', async () => {
     server.use(
-      rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (req, res, ctx) => {
-        return res(ctx.status(200), ctx.json({ 'game-state': { state: 'active', 'state-result': 'move accepted' } }));
+      http.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', () => {
+        return HttpResponse.json({ 'game-state': { state: 'active', 'state-result': 'move accepted' } }, { status: 200 });
       })
     );
 
@@ -32,8 +32,8 @@ describe('useMovePony', () => {
 
   it('should return an error when the API returns a 400 status code', async () => {
     server.use(
-      rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (req, res, ctx) => {
-        return res(ctx.status(400));
+      http.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', () => {
+        return new HttpResponse(null, { status: 400 });
       })
     );
 
@@ -58,8 +58,8 @@ describe('useMovePony', () => {
     ['lost', 'You lost. Killed by monster'],
   ])('should return a %s state when the game is %s', async (state, stateResult) => {
     server.use(
-      rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (req, res, ctx) => {
-        return res(ctx.status(200), ctx.json({ 'game-state': { state, 'state-result': stateResult } }));
+      http.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', () => {
+        return HttpResponse.json({ 'game-state': { state, 'state-result': stateResult } }, { status: 200 });
       })
     );
 

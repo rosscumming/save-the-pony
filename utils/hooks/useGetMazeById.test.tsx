@@ -1,4 +1,4 @@
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { server } from '../../setup';
 import { renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../../src/_tests_/utils';
@@ -26,8 +26,8 @@ describe('useGetMazeById', () => {
 
   it('should return an error ', async () => {
     server.use(
-      rest.get('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (req, res, ctx) => {
-        return res(ctx.status(400));
+      http.get('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', () => {
+        return new HttpResponse(null, { status: 400 });
       })
     );
 

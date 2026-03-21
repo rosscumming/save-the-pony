@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { direction } from '../../utils/types/api.type';
 import twilightsparkle from '../assets/twilightsparkle.png';
-import applejack from '../assets/applejack.png';
+import applejack from '../assets/Applejack.png';
 import rainbowdash from '../assets/rainbowdash.png';
 import rarity from '../assets/rarity.png';
 import fluttershy from '../assets/fluttershy.png';

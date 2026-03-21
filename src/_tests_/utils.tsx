@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { direction } from '../../utils/types/api.type';
@@ -21,14 +21,14 @@ export const mockMazeData: MazeDataInfo = {
 };
 
 export const handlers = [
-  rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze', (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ maze_id: 'abc123' }));
+  http.post('https://ponychallenge.trustpilot.com/pony-challenge/maze', () => {
+    return HttpResponse.json({ maze_id: 'abc123' }, { status: 200 });
   }),
-  rest.get('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(mockMazeData));
+  http.get('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', () => {
+    return HttpResponse.json(mockMazeData, { status: 200 });
   }),
-  rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(mockMazeData));
+  http.post('https://ponychallenge.trustpilot.com/pony-challenge/maze/:mazeId', () => {
+    return HttpResponse.json(mockMazeData, { status: 200 });
   }),
 ];
 

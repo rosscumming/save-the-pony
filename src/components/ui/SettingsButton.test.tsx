@@ -15,6 +15,6 @@ describe('Settings', () => {
     const button = getByText('Settings ⚙️');
 
     expect(button).toHaveStyle('background-color: #1e90ff');
-    expect(button).toHaveStyle('color: white');
+    expect(button).toHaveStyle('color: rgb(255, 255, 255)');
   });
 });

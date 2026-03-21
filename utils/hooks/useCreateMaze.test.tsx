@@ -1,4 +1,4 @@
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../../src/_tests_/utils';
 import { server } from '../../setup';
@@ -32,8 +32,8 @@ describe('useCreateMaze', () => {
     });
 
     server.use(
-      rest.post('https://ponychallenge.trustpilot.com/pony-challenge/maze', (req, res, ctx) => {
-        return res(ctx.status(400));
+      http.post('https://ponychallenge.trustpilot.com/pony-challenge/maze', () => {
+        return new HttpResponse(null, { status: 400 });
       })
     );
 
