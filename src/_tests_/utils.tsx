@@ -42,7 +42,6 @@ const createTestQueryClient = () =>
     logger: {
       log: console.log,
       warn: console.warn,
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
       error: () => {},
     },
   });
